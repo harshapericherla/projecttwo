@@ -1,14 +1,9 @@
-app.controller('MainCtrl',function($scope,personService){
-	
-	$scope.person = personService.test;
-	
-	$scope.persons = personService.getAllPersons()
-	                 .then(function(response){
-	                	 console.log(response.status);
-	                	  $scope.data = response.data 
-	                	  
-	                 },function(response){
-	                	console.log(response.status);
-	                 });
-	                 
+app.controller('myCtrl',function($scope,personFactory){
+	$scope.name = 'harsha';
+	personFactory.getPersonObj(function(data){
+		
+		$scope.persons = data;
+		console.log($scope.persons);
+	});
+	                
 });
