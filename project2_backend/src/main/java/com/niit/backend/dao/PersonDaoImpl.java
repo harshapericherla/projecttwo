@@ -49,7 +49,7 @@ public class PersonDaoImpl implements PersonDao{
 	session.close();
   }
 
-public List<Person> getAllPersons() {
+  public List<Person> getAllPersons() {
 	Session session = sessionFactory.openSession();
 	List<Person> persons = session.createQuery("from Person").list();
 	return persons;
