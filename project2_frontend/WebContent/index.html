@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html ng-app='myApp'>
+<html ng-app='mainApp'>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 
  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="/project2_frontend/script_files/bootstrap/bootstrap.css">
   <link rel="icon" href="data:;base64,iVBORw0KGgo="/>
 
 </head>
@@ -16,7 +16,7 @@
 		      <a class="navbar-brand" href="#">Working On</a>
 		    </div>
 		    <ul class="nav navbar-nav">
-		      <!-- <li class="active"><a href="#">Home</a></li> -->
+		      <li class="active"><a href="#">Home</a></li>
 		      <li><a href="#list">Show</a></li>
 		      <li><a href="#add">Add</a></li>
 		    </ul>
@@ -26,17 +26,14 @@
 <div ng-view></div>
 </body>
    
-
-   
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="/project2_frontend/script_files/angular.min.js"></script>
+  <script src="/project2_frontend/script_files/angular-route.js"></script>
+  <script src="/project2_frontend/script_files/jquery/jquery-3.2.1.js"></script>
+  <script src="/project2_frontend/script_files/bootstrap/bootstrap.js"></script>
   
-  <script src="/project2_frontend/js/app.js"></script>
-  <script src="/project2_frontend/js/controller.js"></script>
+  <script src="/project2_frontend/js/mainApp.js"></script>
+  <script src="/project2_frontend/js/productController.js"></script>
   <script src="/project2_frontend/js/editController.js"></script>
-  <script src="/project2_frontend/js/factory.js"></script>
-   
+  <script src="/project2_frontend/js/productService.js"></script>
   
 </html>
