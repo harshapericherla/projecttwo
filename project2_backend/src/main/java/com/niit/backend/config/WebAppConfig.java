@@ -13,6 +13,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @ComponentScan(basePackages="com.niit")
 public class WebAppConfig extends WebMvcConfigurerAdapter{
  
+	
+ //The following below bean is not required as per the project
  @Bean
  public InternalResourceViewResolver getViewResolver(){
 	InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();

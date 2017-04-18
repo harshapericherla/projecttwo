@@ -4,18 +4,15 @@ app.config(function($routeProvider,$locationProvider){
 	
 
 	$routeProvider
-	.when('/add',{
-		templateUrl: 'pages/createPerson.html',
-		controller:'productController'
+	.when('/register',{
+		templateUrl: '_user/pages/registerUser.html',
+		controller:'userController'
 	})
-	.when('/list',{
-		templateUrl: 'pages/listPerson.html',
-		controller:'productController'
-	})
-	.when('/editPerson/:id',{
-		templateUrl: 'pages/editPerson.html',
-		controller:'editController'
+	.when('/login',{
+		templateUrl: '_user/pages/login.html',
+		controller:'userController'
 	});
+	
 	
 	
 	

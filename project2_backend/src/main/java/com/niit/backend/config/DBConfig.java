@@ -12,9 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.niit.backend.model.Person;
-
-
+import com.niit.backend.model.User;
 
 @Configuration
 @EnableTransactionManagement
@@ -28,8 +26,8 @@ public class DBConfig {
 		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
 		hibernateProperties.setProperty("hibernate.show_sql", "true");
 		lsf.addProperties(hibernateProperties);
-		Class classes[] = new Class[]{Person.class};
-		lsf.addAnnotatedClasses(Person.class);
+		Class classes[] = new Class[]{User.class};
+		lsf.addAnnotatedClasses(classes);
 		return lsf.buildSessionFactory();
 	}
     @Bean
