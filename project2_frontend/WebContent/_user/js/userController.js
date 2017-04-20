@@ -1,4 +1,4 @@
-app.controller('userController',function($scope,userService,$location){
+app.controller('userController',function($scope,userService,$location,$rootScope,$cookieStore){
 	
 	$scope.registerUser = function(){
 		userService.registerUser($scope.user)
@@ -19,10 +19,13 @@ app.controller('userController',function($scope,userService,$location){
 		 userService.login($scope.user)
 		       .then(function(resp){
 		    	   
+		    	   $rootScope.currentUser = resp.data; 
+		    	   $cookieStore.put("currentUser",resp.data);
 		    	   console.log(resp.status);
 		    	   $location.path('/home');
 		       },function(resp){
 		    	   
+		    	   $scope.message = resp.data.message;
 		    	   console.log(resp.status);
 		    	   $location.path('/login');
 		       });

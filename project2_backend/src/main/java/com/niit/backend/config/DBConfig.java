@@ -20,7 +20,7 @@ import com.niit.backend.model.User;
 public class DBConfig {
     @Bean
 	public SessionFactory getSessionFactory(){
-		LocalSessionFactoryBuilder lsf = new LocalSessionFactoryBuilder(getDataSource());
+        LocalSessionFactoryBuilder lsf = new LocalSessionFactoryBuilder(getDataSource());
 		Properties hibernateProperties = new Properties();
 		hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
 		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");

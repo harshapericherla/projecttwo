@@ -30,4 +30,11 @@ public class UserDaoImpl implements UserDao{
 		User validUser = (User)query.uniqueResult();
 		return validUser;
 	}
+
+	public void updateUser(User user) {
+		Session session = sessionFactory.openSession();
+		session.update(user);
+		session.flush();
+		session.close();
+	}
 }

@@ -11,5 +11,9 @@ app.factory('userService',function($http){
 		  return $http.post(base_url+'/login',user);
 	}
 	
+	fac.logout = function(){
+		  return $http.put(base_url+'/logout');
+	}
+	
 	return fac;
 });
