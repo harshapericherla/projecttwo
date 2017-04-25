@@ -57,15 +57,47 @@ public class UserController {
 	
 	@RequestMapping(value="/logout",method = RequestMethod.PUT)
 	public ResponseEntity<?> logout(HttpSession session){
+		
+		  
 		  User user = (User)session.getAttribute("user");
 		  if(user == null){
 			  Error error = new Error(3,"Unauthorized user, please log in");
 			  return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
 		  }
 		  else{
+			 
+			  user.setOnline(false);
+			  user = userDao.getUser(user.getId());
+			  userDao.updateUser(user);
 			  session.removeAttribute("user");
 			  session.invalidate();
-			  return new ResponseEntity<String>("logged out successfully", HttpStatus.OK);
+			  return new ResponseEntity<Void>(HttpStatus.OK);
 		  }
+	}
+	
+	@RequestMapping(value="/getuser",method = RequestMethod.GET)
+	public ResponseEntity<?> getUser(HttpSession session){
+		 User user = (User)session.getAttribute("user");
+		 if(user == null){
+			 Error error = new Error(3, "Unauthorized user");
+			 return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+		 }
+		 else{
+			 user = userDao.getUser(user.getId());
+			 return new ResponseEntity<User>(user,HttpStatus.OK);
+		 }
+	}
+	
+	@RequestMapping(value="/updateuser",method = RequestMethod.PUT)
+	public ResponseEntity<?> updateUser(@RequestBody User updatedUser,HttpSession session){
+		User user = (User)session.getAttribute("user");
+	    if(user == null){
+	    	Error error = new Error(3, "Unauthorized user");
+			return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+	    }
+	    else{
+	    	userDao.updateUser(updatedUser);
+	    	return new ResponseEntity<Void>(HttpStatus.OK);
+	    }
 	}
 }

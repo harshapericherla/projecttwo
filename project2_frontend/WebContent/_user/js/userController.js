@@ -19,6 +19,7 @@ app.controller('userController',function($scope,userService,$location,$rootScope
 		 userService.login($scope.user)
 		       .then(function(resp){
 		    	   
+		    	  
 		    	   $rootScope.currentUser = resp.data; 
 		    	   $cookieStore.put("currentUser",resp.data);
 		    	   console.log(resp.status);

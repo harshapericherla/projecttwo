@@ -20,6 +20,8 @@
 		      <li><a href="#login" ng-hide='currentUser.username'>Login</a></li>
 		      <li><a href="#register" ng-hide='currentUser.username'>Register</a></li>
 		     <li><a href="#" ng-show='currentUser.username'>Welcome {{currentUser.username}}</a></li> 
+		     <li><a href="#profilepic"  ng-show='currentUser.username'><img src="http://localhost:8081/project2_backend/getimage/{{currentUser.username}}" alt="Upload Picture" height="30px" width="30px" /></a></li>
+		     <li><a href="#edituser" ng-show='currentUser.username'>Edit Profile</a></li>
 		     <li><a href="" ng-click="logout()" ng-show='currentUser.username'>logout</a></li>
 		    </ul>
 		</div>
@@ -36,6 +38,7 @@
   
   <script src="/project2_frontend/js/mainApp.js"></script>
   <script src="/project2_frontend/_user/js/userController.js"></script>
+  <script src="/project2_frontend/_user/js/editController.js"></script>
   <script src="/project2_frontend/_user/js/userService.js"></script>
   
 </html>

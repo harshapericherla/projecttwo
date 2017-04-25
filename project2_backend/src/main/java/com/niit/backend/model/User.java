@@ -18,6 +18,8 @@ public class User {
 	@Column(unique=true, nullable = false)
 	private String username;
 	private String password;
+	private String firstname;
+	private String lastname;
 	
 	@Column(unique=true, nullable = false)
 	private String email;
@@ -69,5 +71,16 @@ public class User {
 	public void setOnline(boolean online) {
 		this.online = online;
 	}
-
+	public String getFirstname() {
+		return firstname;
+	}
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+	public String getLastname() {
+		return lastname;
+	}
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
 }
