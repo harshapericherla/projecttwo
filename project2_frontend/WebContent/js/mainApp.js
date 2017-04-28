@@ -21,6 +21,18 @@ app.config(function($routeProvider,$locationProvider){
 	.when('/edituser',{
 		templateUrl: '_user/pages/edituserform.html',
 		controller:'editController'
+	})
+	.when('/addjob',{
+		templateUrl: '_job/pages/jobform.html',
+		controller:'jobController'
+	})
+	.when('/getalljobs',{
+		templateUrl: '_job/pages/getjobtitle.html',
+		controller:'jobController'
+	})
+	.when('/addpost',{
+		templateUrl: '_blog/pages/blogForm.html',
+		controller:'blogController'
 	});
 
 });
