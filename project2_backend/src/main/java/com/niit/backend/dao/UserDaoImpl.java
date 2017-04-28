@@ -28,6 +28,7 @@ public class UserDaoImpl implements UserDao{
 		query.setString(0, user.getUsername());
 		query.setString(1, user.getPassword());
 		User validUser = (User)query.uniqueResult();
+		session.close();
 		return validUser;
 	}
 

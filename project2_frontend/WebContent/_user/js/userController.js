@@ -1,4 +1,4 @@
-app.controller('userController',function($scope,userService,$location,$rootScope,$cookieStore){
+app.controller('userController',function($scope,userService,$location,$rootScope,$cookieStore,$window){
 	
 	$scope.registerUser = function(){
 		userService.registerUser($scope.user)
@@ -24,6 +24,7 @@ app.controller('userController',function($scope,userService,$location,$rootScope
 		    	   $cookieStore.put("currentUser",resp.data);
 		    	   console.log(resp.status);
 		    	   $location.path('/home');
+		    	   $window.location.reload();
 		       },function(resp){
 		    	   
 		    	   $scope.message = resp.data.message;

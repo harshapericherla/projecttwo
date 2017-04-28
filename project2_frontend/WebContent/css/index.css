@@ -1,0 +1,36 @@
+main.ng-enter {
+  transition:0.4s linear all;
+  opacity:0;
+}
+
+main.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+.list.ng-enter {
+  transition:0.5s linear all;
+  opacity:0;
+}
+.list.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+#img-circle{
+	border-radius:50%;
+}
+
+.navbar.navbar-default{
+	padding: 1% 0 0 0 !important;
+}
+li{
+	cursor:pointer !important;
+}
+a{
+	text-decoration: none !important;
+}
+.active{
+	padding : 10px !important;
+	color: black !important;
+	font-weight : bold !important;
+	font-size:15px;
+}

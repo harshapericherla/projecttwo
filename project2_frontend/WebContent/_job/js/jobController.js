@@ -23,15 +23,28 @@ app.controller('jobController',function($scope,jobService,$location){
 	}
 	
 	$scope.jobDetail = function(id){
-		 $scope.showJobDetails = true;
-		 console.log(id);
-		 jobService.getJobDetail(id)
+		
+	if($scope.currentId == id || $scope.currentId == undefined){	
+		if($scope.showJobDetails == true){
+			$scope.showJobDetails = false;
+		}
+		else if($scope.showJobDetails == false){
+			$scope.showJobDetails = true;
+		}
+		else{
+			$scope.showJobDetails = true;
+		}
+	}
+		 $scope.currentId = id;
+		 /*jobService.getJobDetail(id)
 		           .then(function(resp){
 		        	    $scope.job = resp.data;
 		           },function(resp){
 		        	    console.log(resp.status);
-		           })
+		           })*/
 	}
 	
 	getAllJobs();
 });
+
+

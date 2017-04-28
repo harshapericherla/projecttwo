@@ -1,4 +1,4 @@
-var app = angular.module('mainApp',['ngRoute','ngCookies']);
+var app = angular.module('mainApp',['ngRoute','ngCookies','ngAnimate']);
 
 app.config(function($routeProvider,$locationProvider){
 	
@@ -55,10 +55,17 @@ app.run(function($rootScope,$cookieStore,userService,$location){
 		        	 console.log(resp.data);
 		        	 $rootScope.message = "logged out sucessfully";
 		        	 $location.path('/login');
-		        	 
+		        	
 		        	 console.log($rootScope.message);
 		         },function(resp){
 		        	 console.log(resp.data);
 		         });
 	 }
+	 
+	 
+	 
+	 $('li').click(function(){
+		  $('li').removeClass('active');
+		  $(this).addClass('active');
+	 });
 });
