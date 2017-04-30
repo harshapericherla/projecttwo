@@ -25,9 +25,10 @@ public class FileUploadController {
       private ProfileUploadDao profileUploadDao;
 	  
       @RequestMapping(value="/doUpload",method = RequestMethod.POST)
-	  public ResponseEntity<?> uploadProfilePic(HttpSession session,@RequestParam CommonsMultipartFile fileUpload){
+	  public ResponseEntity<?> uploadProfilePic(@RequestParam(value="file") CommonsMultipartFile fileUpload,HttpSession session){
 		    
 		    User user = (User)session.getAttribute("user");
+		    System.out.println("hey you are in --------------");
 		    if(user == null){
 		    	Error error = new Error(3,"Unauthorized user, please login");
 		    	return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
@@ -35,9 +36,10 @@ public class FileUploadController {
 		    else{
 		    	ProfilePicture profilePicture = new ProfilePicture();
 		    	profilePicture.setUsername(user.getUsername());
+		    	System.out.println(fileUpload.getBytes());
 		        profilePicture.setImage(fileUpload.getBytes());
 		        profileUploadDao.save(profilePicture);
-		        return new ResponseEntity<User>(user,HttpStatus.OK);
+		        return new ResponseEntity<Void>(HttpStatus.OK);
 		    }
 	  }
       

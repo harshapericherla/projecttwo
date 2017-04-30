@@ -20,7 +20,6 @@
 		    
 		      <li class="active"><a href="#home">Home</a></li>
 		      <li><a href="#login" ng-hide='currentUser.username'>Login</a></li>
-		      <li><a href="#register" ng-hide='currentUser.username'>Register</a></li>
 		      <li><a href="#" ng-show='currentUser.username'>Welcome {{currentUser.username}}</a></li> 
 		      <li><a href="#profilepic"  ng-show='currentUser.username'><img id='img-circle' src="http://localhost:8081/project2_backend/getimage/{{currentUser.username}}" alt="Upload Picture" height="30px" width="30px" /></a></li>
 		      <li><a href="#edituser" ng-show='currentUser.username'>Edit Profile</a></li>

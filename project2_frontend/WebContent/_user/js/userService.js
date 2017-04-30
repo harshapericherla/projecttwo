@@ -21,5 +21,14 @@ app.factory('userService',function($http){
 	fac.updateUser = function(user){
 		  return $http.put(base_url+'/updateuser',user); 
 	}
+	fac.uploadFileToUrl = function(file, uploadUrl){
+        var fd = new FormData();
+        fd.append('file', file);
+     
+          return $http.post(uploadUrl, fd, {
+           transformRequest: angular.identity,
+           headers: {'Content-Type': undefined}
+          });
+	}
 	return fac;
 });

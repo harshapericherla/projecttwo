@@ -9,14 +9,15 @@ app.config(function($routeProvider,$locationProvider){
 		controller:'userController'
 	})
 	.when('/login',{
-		templateUrl: '_user/pages/login.html',
+		templateUrl: '_user/pages/loginAndRegister.html',
 		controller:'userController'
 	})
 	.when('/home',{
 		templateUrl: '_home/home.html'
 	})
 	.when('/profilepic',{
-		templateUrl: '_user/pages/profilepic.html'
+		templateUrl: '_user/pages/profilepic.html',
+		controller:'userController'
 	})
 	.when('/edituser',{
 		templateUrl: '_user/pages/edituserform.html',
@@ -33,6 +34,9 @@ app.config(function($routeProvider,$locationProvider){
 	.when('/addpost',{
 		templateUrl: '_blog/pages/blogForm.html',
 		controller:'blogController'
+	})
+	.otherwise({
+		redirectTo: '/home'
 	});
 
 });
