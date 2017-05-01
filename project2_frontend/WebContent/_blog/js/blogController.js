@@ -11,4 +11,11 @@ app.controller('blogController',function($scope,$location,blogService){
 		        	   $location.path('/login');
 		           });
 	}
+	
+    blogService.getAllBlogs()
+               .then(function(resp){
+            	    $scope.blogPosts = resp.data;
+               },function(resp){
+            	    console.log(resp.status);
+               });
 });

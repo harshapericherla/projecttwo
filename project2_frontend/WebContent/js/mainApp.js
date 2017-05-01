@@ -35,6 +35,14 @@ app.config(function($routeProvider,$locationProvider){
 		templateUrl: '_blog/pages/blogForm.html',
 		controller:'blogController'
 	})
+	.when('/getallblogs',{
+		templateUrl: '_blog/pages/getblogtitle.html',
+		controller:'blogController'
+	})
+	.when('/getblogdetail/:id',{
+		templateUrl: '_blog/pages/getblogdetail.html',
+		controller:'blogDetailController'
+	})
 	.otherwise({
 		redirectTo: '/home'
 	});

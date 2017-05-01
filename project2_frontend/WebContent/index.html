@@ -34,7 +34,15 @@
 			        </ul>
 			  </li>
 			  
-			  <li><a href="#addpost" ng-show='currentUser.username'>Add Blog Post</a></li>
+			  <li class="dropdown" ng-show="currentUser.username">
+			        <a class="dropdown-toggle" data-toggle="dropdown" >Blog
+			        <span class="caret"></span></a>
+			        <ul class="dropdown-menu">
+			              <li><a href="#addpost" ng-show='currentUser.username'>Add Blog Post</a></li>
+			             <li><a href="#getallblogs" ng-show='currentUser.username'>All Blogs</a></li>
+			        </ul>
+			  </li>
+			 
 		   </ul>
 		</div>
 </nav>
@@ -59,6 +67,7 @@
   <script src="/project2_frontend/_user/js/editController.js"></script>
   <script src="/project2_frontend/_job/js/jobController.js"></script>
   <script src="/project2_frontend/_blog/js/blogController.js"></script>
+  <script src="/project2_frontend/_blog/js/blogDetailController.js"></script>
   <!-- Services -->
   
   <script src="/project2_frontend/_user/js/userService.js"></script>

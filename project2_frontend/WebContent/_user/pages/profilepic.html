@@ -8,9 +8,88 @@
       </form>
   </div>
 </div> -->
-<div class = "container">
+
+<!-- <div class = "container">
   <div class ="form-group">
          <input type = "file" file-model = "myFile"/>
          <button ng-click = "uploadFile()">upload me</button>
    </div>
- </div>
+ </div> 
+ -->
+ <html>
+ <style>
+     .container{
+    margin-top:20px;
+}
+.image-preview-input {
+    position: relative;
+	overflow: hidden;
+	margin: 0px;    
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;    
+}
+.image-preview-input input[type=file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+.image-preview-input-title {
+    margin-left:2px;
+}
+.btn.btn-danger,.btn.btn-success{
+    padding: 10% 2% 10% 2%;
+    font-size:20px;
+    font-weight:bold;
+    opacity:0.9;
+}
+.hide{
+  display : none;
+}
+ </style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <body>
+		 <div class="container">
+		    <div class="row">    
+		         <div class="col-lg-6 ">
+		            <button class="btn btn-danger disabled" ng-click = "uploadFile()">
+				      <span class="before">CLICK BROWSE BUTTON</span>
+				      <span class="after hide">CLICK ME TO UPDATE</span>
+   					</button>
+		         </div>
+		        <div class="col-lg-6 col-xs-12 col-md-6 col-md-offset-3 col-sm-8 ">  
+		            <!-- image-preview-filename input [CUT FROM HERE]-->
+		            <div class="input-group image-preview">
+		                <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+		                <span class="input-group-btn">
+		                    <!-- image-preview-clear button -->
+		                    <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+		                        <span class="glyphicon glyphicon-remove"></span>  CLEAR
+		                    </button>
+		                    <!-- image-preview-input -->
+		                    <div class="btn btn-default image-preview-input">
+		                        <span class="glyphicon glyphicon-folder-open"></span>
+		                        <span class="image-preview-input-title">BROWSE</span>
+		                        <input type="file" file-model = "myFile" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
+		                        
+		                    </div>
+		                </span>
+		                
+		            </div><!-- /input-group image-preview [TO HERE]--> 
+		        </div>
+		    </div>
+		  
+		    
+</div>
+   
+ </body>
+
+ </html>

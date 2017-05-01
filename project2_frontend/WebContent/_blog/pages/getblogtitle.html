@@ -1,0 +1,13 @@
+<div class="table-responsive">
+ <table class="table">
+ <tr><th>Recent Posts</th></tr>
+    <tr ng-repeat="blogPost in blogPosts | orderBy:'time':true">
+       <td><a href="#getblogdetail/{{blogPost.id}}">{{blogPost.title}}</a></td>
+       <td>CreatedBy: {{blogPost.createdBy.username}}</td>
+       <td>CreatedOn: {{blogPost.createdOn | date:'MM/dd/yyyy HH:mm'}}</td>
+       <td></td>
+    </tr>
+ </table>
+</div>
+
+
