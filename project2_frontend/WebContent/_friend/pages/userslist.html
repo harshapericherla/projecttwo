@@ -1,0 +1,17 @@
+<table class="table table-stripped">
+  <tr>
+   <th>Lastname</th>
+   <th>Firstname</th>
+   <th>email</th>
+   <th>online</th>
+   <th>Action</th>
+  </tr>
+  <tr ng-repeat="users in usersList">
+     <td>{{users.firstname}}</td>
+     <td>{{users.lastname}}</td>
+     <td>{{users.email}}</td>
+     <td ng-if="users.online">YES</td>
+     <td ng-if="!users.online">NO</td>
+     <td><a href="" ng-click="friendRequest(users.username)" class="btn btn-xs btn-default">Send FriendRequest</a></td>
+  </tr>
+</table>

@@ -34,6 +34,7 @@ public class UserDaoImpl implements UserDao{
 
 	public void updateUser(User user) {
 		Session session = sessionFactory.openSession();
+	     System.out.println("--------------"+user.isOnline());
 		session.update(user);
 		session.flush();
 		session.close();

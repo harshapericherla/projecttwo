@@ -13,7 +13,8 @@ app.config(function($routeProvider,$locationProvider){
 		controller:'userController'
 	})
 	.when('/home',{
-		templateUrl: '_home/home.html'
+		templateUrl: '_home/home.html',
+		controller:'blogController'
 	})
 	.when('/profilepic',{
 		templateUrl: '_user/pages/profilepic.html',
@@ -42,6 +43,14 @@ app.config(function($routeProvider,$locationProvider){
 	.when('/getblogdetail/:id',{
 		templateUrl: '_blog/pages/getblogdetail.html',
 		controller:'blogDetailController'
+	})
+	.when('/getallusers',{
+		templateUrl: '_friend/pages/userslist.html',
+		controller:'friendController'
+	})
+	.when('/pendingrequests',{
+		templateUrl: '_friend/pages/pendingrequests.html',
+		controller:'friendController'
 	})
 	.otherwise({
 		redirectTo: '/home'

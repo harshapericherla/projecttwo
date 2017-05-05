@@ -42,7 +42,15 @@
 			             <li><a href="#getallblogs" ng-show='currentUser.username'>All Blogs</a></li>
 			        </ul>
 			  </li>
-			 
+			  
+			   <li class="dropdown" ng-show="currentUser.username">
+			        <a class="dropdown-toggle" data-toggle="dropdown" >Friend
+			        <span class="caret"></span></a>
+			        <ul class="dropdown-menu">
+			              <li><a href="#getallusers" ng-show='currentUser.username'>View all Users</a></li>
+			              <li><a href="#pendingrequests" ng-show='currentUser.username'>Show Requests</a></li>
+			        </ul>
+			  </li>
 		   </ul>
 		</div>
 </nav>
@@ -68,9 +76,11 @@
   <script src="/project2_frontend/_job/js/jobController.js"></script>
   <script src="/project2_frontend/_blog/js/blogController.js"></script>
   <script src="/project2_frontend/_blog/js/blogDetailController.js"></script>
+  <script src="/project2_frontend/_friend/js/friendController.js"></script>
   <!-- Services -->
   
   <script src="/project2_frontend/_user/js/userService.js"></script>
   <script src="/project2_frontend/_job/js/jobService.js"></script>
   <script src="/project2_frontend/_blog/js/blogService.js"></script>
+    <script src="/project2_frontend/_friend/js/friendService.js"></script>
 </html>

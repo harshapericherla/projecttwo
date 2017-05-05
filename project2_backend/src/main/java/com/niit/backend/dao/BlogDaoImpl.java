@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.niit.backend.model.BlogComment;
 import com.niit.backend.model.BlogPost;
 
 @Repository
@@ -40,5 +41,35 @@ public class BlogDaoImpl implements BlogDao{
 		session.close();
 		return blogPost;
 	}
+
+	public void addBlogComment(BlogComment blogComment) {
+		Session session = sessionFactory.openSession();
+		session.save(blogComment);
+		session.flush();
+		session.close();
+	}
+
+	public List<BlogComment> getBlogComments(int blogPostId) {
+		Session session = sessionFactory.openSession();
+		BlogPost blogPost = (BlogPost)session.get(BlogPost.class, blogPostId);
+		List<BlogComment> blogComments = blogPost.getBlogComments();
+		System.out.println(blogPost+"-----------in impl");
+		session.close();
+		return blogComments;
+	}
+
+	public List<BlogPost> getBlogPosts(int approved) {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from BlogPost where approved="+approved);
+		List<BlogPost> blogPosts = query.list();
+		session.close();
+		return blogPosts;
+	}
     
+	public void update(BlogPost blogPost){
+		Session session = sessionFactory.openSession();
+		session.update(blogPost);
+		session.flush();
+		session.close();
+	}
 }

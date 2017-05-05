@@ -22,8 +22,8 @@ app.factory('userService',function($http){
 		  return $http.put(base_url+'/updateuser',user); 
 	}
 	fac.uploadFileToUrl = function(file, uploadUrl){
-        var fd = new FormData();
-        fd.append('file', file);
+          var fd = new FormData();
+          fd.append('file', file);
      
           return $http.post(uploadUrl, fd, {
            transformRequest: angular.identity,

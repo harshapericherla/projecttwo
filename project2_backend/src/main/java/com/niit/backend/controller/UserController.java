@@ -66,8 +66,9 @@ public class UserController {
 		  }
 		  else{
 			 
-			  user.setOnline(false);
+			  
 			  user = userDao.getUser(user.getId());
+			  user.setOnline(false);
 			  userDao.updateUser(user);
 			  session.removeAttribute("user");
 			  session.invalidate();
