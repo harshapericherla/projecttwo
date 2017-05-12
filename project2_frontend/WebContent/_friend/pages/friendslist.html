@@ -1,0 +1,8 @@
+
+  <ul ng-repeat="friend in friendslist" style="list-style-type:none">
+    
+     <li ng-show="!(currentUser.username == friend.from)">{{friend.from}}</li>
+     <li ng-show="!(currentUser.username == friend.to)">{{friend.to}}</li>
+    
+  </ul>
+</table>

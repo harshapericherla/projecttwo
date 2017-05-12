@@ -52,6 +52,10 @@ app.config(function($routeProvider,$locationProvider){
 		templateUrl: '_friend/pages/pendingrequests.html',
 		controller:'friendController'
 	})
+	.when('/listoffriends',{
+		templateUrl: '_friend/pages/friendslist.html',
+		controller:'friendController'
+	})
 	.otherwise({
 		redirectTo: '/home'
 	});

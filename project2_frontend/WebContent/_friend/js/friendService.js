@@ -12,5 +12,14 @@ app.factory('friendService',function($http){
 	   fac.pendingRequests = function(){
 		   return $http.get(base_url+'/pendingrequests');
 	   }
+	   
+	   fac.updatePendingRequests = function(from,status){
+		   console.log(from+''+status);
+		   return $http.put(base_url+'/updatependingrequests/'+from+'/'+status);
+	   }
+	   fac.getAllFriends = function(){
+		   return $http.get(base_url+'/friendslist');
+	   }
+	   
 	   return fac;
 });

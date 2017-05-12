@@ -63,4 +63,30 @@ public class FriendController {
 		return new ResponseEntity<List<Friend>>(pendingRequests,HttpStatus.OK);
 		}
 	}
+	
+	@RequestMapping(value="/updatependingrequests/{from}/{status}",method=RequestMethod.PUT)
+	public ResponseEntity<?> pendingRequests(@PathVariable String from,@PathVariable char status,HttpSession session){
+		User user = (User)session.getAttribute("user");
+		if(user == null){
+	    	Error error = new Error(3,"Unauthorized user, please login");
+	    	return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+	    }
+		else{
+			friendDao.updatePendingRequests(from,user.getUsername(),status);
+			return new ResponseEntity<Void>(HttpStatus.OK);
+		}
+	}
+	
+	@RequestMapping(value="/friendslist",method=RequestMethod.GET)
+	public ResponseEntity<?> getAllFriends(HttpSession session){
+		User user = (User)session.getAttribute("user");
+		if(user == null){
+	    	Error error = new Error(3,"Unauthorized user, please login");
+	    	return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+	    }
+		else{
+		    List<Friend> friends = friendDao.listOfFriends(user.getUsername());
+		    return new ResponseEntity<List<Friend>>(friends,HttpStatus.OK);
+	    }
+	}
 }
