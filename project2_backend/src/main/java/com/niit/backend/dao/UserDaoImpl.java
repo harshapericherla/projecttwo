@@ -2,6 +2,9 @@ package com.niit.backend.dao;
 
 import com.niit.backend.model.User;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -45,5 +48,16 @@ public class UserDaoImpl implements UserDao{
 		User user = (User)session.get(User.class, id);
 		session.close();
 		return user;
+	}
+	
+	public List<String> getOnlineUsers(){
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from User where online="+true);
+		List<User> users = query.list();
+		List<String> username = new ArrayList<String>();
+		for(User user : users)
+		   username.add(user.getUsername());
+		session.close();
+		return username;
 	}
 }

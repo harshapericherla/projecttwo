@@ -23,7 +23,7 @@
 		      <li><a href="#" ng-show='currentUser.username'>Welcome {{currentUser.username}}</a></li> 
 		      <li><a href="#profilepic"  ng-show='currentUser.username'><img id='img-circle' src="http://localhost:8081/project2_backend/getimage/{{currentUser.username}}" alt="Upload Picture" height="30px" width="30px" /></a></li>
 		      <li><a href="#edituser" ng-show='currentUser.username'>Edit Profile</a></li>
-		      <li><a href="" ng-click="logout()" ng-show='currentUser.username'>logout</a></li>
+		      <li><a href="" ng-click="logout()" ng-show='currentUser.username'>Logout</a></li>
 		      
 		      <li class="dropdown" ng-show="currentUser.username">
 			        <a class="dropdown-toggle" data-toggle="dropdown" >Job
@@ -40,6 +40,7 @@
 			        <ul class="dropdown-menu">
 			              <li><a href="#addpost" ng-show='currentUser.username'>Add Blog Post</a></li>
 			             <li><a href="#getallblogs" ng-show='currentUser.username'>All Blogs</a></li>
+			             
 			        </ul>
 			  </li>
 			  
@@ -52,6 +53,7 @@
 			              <li><a href="#listoffriends" ng-show='currentUser.username'>Friends List</a></li>
 			        </ul>
 			  </li>
+			  <li><a href="#chat" ng-show='currentUser.username' ng-click="condition='true'">Chat</a></li>
 		   </ul>
 		</div>
 </nav>
@@ -65,7 +67,8 @@
   <script src="/project2_frontend/script_files/angular-route.js"></script>
   <script src="/project2_frontend/script_files/jquery/jquery-3.2.1.js"></script>
   <script src="/project2_frontend/script_files/bootstrap/bootstrap.js"></script>
-  
+  <script src="/project2_frontend/script_file s/sockjs.js"></script>
+  <script src="/project2_frontend/script_files/stomp.js"></script>
   <!-- Main Module -->
   
   <script src="/project2_frontend/js/mainApp.js"></script>
@@ -78,10 +81,12 @@
   <script src="/project2_frontend/_blog/js/blogController.js"></script>
   <script src="/project2_frontend/_blog/js/blogDetailController.js"></script>
   <script src="/project2_frontend/_friend/js/friendController.js"></script>
+  <script src="/project2_frontend/_chat/js/chatController.js"></script>
   <!-- Services -->
   
   <script src="/project2_frontend/_user/js/userService.js"></script>
   <script src="/project2_frontend/_job/js/jobService.js"></script>
   <script src="/project2_frontend/_blog/js/blogService.js"></script>
-    <script src="/project2_frontend/_friend/js/friendService.js"></script>
+  <script src="/project2_frontend/_friend/js/friendService.js"></script>
+  <script src="/project2_frontend/_chat/js/chatService.js"></script>
 </html>

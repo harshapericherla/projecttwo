@@ -3,11 +3,9 @@ app.controller('friendController',function($scope,$location,friendService,$windo
 	$scope.friendRequest = function(username){
 		friendService.sendFriendRequest(username)
 		           .then(function(resp){
-		        	   if(status=='A')
-		        	   alert('friend reqeust has been sent to '+username);
-		        	   else{
-		        		   alert('friend reqeust has been decline to '+username)
-		        	   }
+		        	  
+		        		   alert('friend reqeust has been sent to '+username)
+		        	   
 		        	   $location.path('/getallusers');
 		        	   $window.location.reload();
 		           },function(resp){})

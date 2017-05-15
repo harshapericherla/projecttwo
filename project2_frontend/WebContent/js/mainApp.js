@@ -56,6 +56,10 @@ app.config(function($routeProvider,$locationProvider){
 		templateUrl: '_friend/pages/friendslist.html',
 		controller:'friendController'
 	})
+	.when('/chat',{
+		templateUrl: '_chat/pages/chat.html',
+		controller:'chatController'
+	})
 	.otherwise({
 		redirectTo: '/home'
 	});
@@ -64,12 +68,14 @@ app.config(function($routeProvider,$locationProvider){
 
 app.run(function($rootScope,$cookieStore,userService,$location){
 	
+	
+	$rootScope.condition = 'false';
 	 if($rootScope.currentUser == undefined){
 		   $rootScope.currentUser = $cookieStore.get("currentUser");
 	 }
 	 
 	 $rootScope.logout = function(){
-		 
+		 $rootScope.condition = 'false';
 		   delete $rootScope.currentUser;
 		   $cookieStore.remove("currentUser");
 		   console.log("inside logout");
@@ -79,6 +85,7 @@ app.run(function($rootScope,$cookieStore,userService,$location){
 		        	 
 		        	 console.log(resp.data);
 		        	 $rootScope.message = "logged out sucessfully";
+		        	
 		        	 $location.path('/login');
 		        	
 		        	 console.log($rootScope.message);

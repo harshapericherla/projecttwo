@@ -24,12 +24,14 @@ public class FriendDaoImpl implements FriendDao{
 	public List<User> getSuggestedUsers(User user) {
 		
 		Session session = sessionFactory.openSession();
-		SQLQuery query = session.createSQLQuery("select *from userstable where username in (select username from userstable where username!=? minus (select from_id from friendtable where to_id=?"
-		                       +"union select to_id from friendtable where from_id=?"
+		SQLQuery query = session.createSQLQuery("select *from userstable where username in (select username from userstable where username!=? minus (select from_id from friendtable where to_id=? and status!=?"
+		                       +"union select to_id from friendtable where from_id=? and status!=?"
 				               +"))");
 		query.setString(0, user.getUsername());
 		query.setString(1, user.getUsername());
-		query.setString(2, user.getUsername());
+		query.setString(3, user.getUsername());
+		query.setString(2, "D");
+		query.setString(4, "D");
 		query.addEntity(User.class);
 		List<User> users = query.list();
 		session.close();
@@ -42,7 +44,7 @@ public class FriendDaoImpl implements FriendDao{
 	    friend.setFrom(from);
 	    friend.setTo(to);
 	    friend.setStatus('P');
-	    session.save(friend);
+	    session.saveOrUpdate(friend);
 	    session.flush();
 	    session.close();
 	}
@@ -76,5 +78,13 @@ public class FriendDaoImpl implements FriendDao{
 		List<Friend> friends = query.list();
 		session.close();
 		return friends;
+	}
+	
+	public List<User> allUsers(){
+		Session session = sessionFactory.openSession();;
+		Query query = session.createQuery("from User");
+		List<User> users = query.list();
+		session.close();
+		return users;
 	}
 }

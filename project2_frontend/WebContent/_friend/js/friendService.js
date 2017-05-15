@@ -20,6 +20,9 @@ app.factory('friendService',function($http){
 	   fac.getAllFriends = function(){
 		   return $http.get(base_url+'/friendslist');
 	   }
+	   fac.getAll = function(){
+		   return $http.get(base_url+"/getall");
+	   }
 	   
 	   return fac;
 });

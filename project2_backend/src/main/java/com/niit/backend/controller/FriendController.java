@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.niit.backend.dao.FriendDao;
+import com.niit.backend.dao.UserDao;
 import com.niit.backend.model.Error;
 import com.niit.backend.model.Friend;
 import com.niit.backend.model.User;
@@ -23,6 +24,9 @@ public class FriendController {
     
 	@Autowired
 	private FriendDao friendDao;
+	
+	@Autowired
+	private UserDao userDao;
 	
 	@RequestMapping(value="/getallusers",method=RequestMethod.GET)
 	public ResponseEntity<?> getAllUsers(HttpSession session){
@@ -88,5 +92,10 @@ public class FriendController {
 		    List<Friend> friends = friendDao.listOfFriends(user.getUsername());
 		    return new ResponseEntity<List<Friend>>(friends,HttpStatus.OK);
 	    }
+	}
+	
+	@RequestMapping(value="/getall",method=RequestMethod.GET)
+	public ResponseEntity<List<User>> getAll(){
+		return new ResponseEntity<List<User>>(friendDao.allUsers(),HttpStatus.OK);
 	}
 }

@@ -18,6 +18,7 @@ app.factory('userService',function($http){
 	fac.getUser = function(){
 		  return $http.get(base_url+'/getuser');
 	}
+	
 	fac.updateUser = function(user){
 		  return $http.put(base_url+'/updateuser',user); 
 	}
