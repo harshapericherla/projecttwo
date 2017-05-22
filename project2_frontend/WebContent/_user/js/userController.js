@@ -28,7 +28,7 @@ app.controller('userController',function($scope,userService,$location,$rootScope
 		    	   $window.location.reload();
 		       },function(resp){
 		    	   
-		    	   $scope.message = resp.data.message;
+		    	   $scope.message = "invalid credentials";
 		    	   console.log(resp.status);
 		    	   $location.path('/login');
 		       });

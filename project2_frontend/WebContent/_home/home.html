@@ -4,8 +4,26 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
+<style>
+  span.blogtext{
+     font-weight :bold;
+     font-size:20px;
+     color:black;
+     text-transform:uppercase;
+     opacity:0.8;
+  }
+  span.color{
+     color:#DF4C53;
+  }
+</style>
 <body>
-   <h1>Hello ,You are in home page</h1>
-   <a href="#getallblogs" ng-show="currentUser.role == 'Admin' ">You have {{blogPosts.length}} number of blogPosts waiting for approval</a>
+   <h1>Hello ,You are in home page</h1><br>
+   <div ng-show="currentUser.role == 'Admin'">
+   <div class="panel panel-info">
+     <div class="panel-heading">
+        <a href="#getallblogs" ng-show="currentUser.role == 'Admin'"><span class="blogtext">You have <span class="color">{{blogPosts.length}}</span> number of blogPosts waiting for approval</span></a>
+     </div>
+   </div>
+   </div>
 </body>
 </html>

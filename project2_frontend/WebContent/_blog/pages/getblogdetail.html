@@ -1,39 +1,86 @@
+<html>
+<style>
+   .panel-heading{
+      font-size:18px;
+   }
+   span.blogtext, span.blogtext1{
+      font-weight:bold;
+      text-transform:uppercase;
+   }
+   span.blogtext1{
+      opacity:0.8;
+   }
+   span.blogtext2{
+      }
+</style>
+<body>
+<div class="container">
 <div class="row">
-  <div class="panel panel-default">
+ 
+ <div class="panel-group">
+ 
+  <div class="panel panel-info">
      <div class="panel-heading">
-         <div>{{blogPost.title}}</div>
-         <span><b>Created By:</b>{{blogPost.createdBy.username}}</span>
+         <div>{{blogPost.title | uppercase}}</div>
+      </div>
+    </div>
+    
+    <div class="panel panel-success">
+     <div class="panel-heading">
+         <span><b>Created By:</b>{{blogPost.createdBy.username | uppercase}}</span>
          <span><b>On:</b>{{blogPost.createdOn | date:'medium' }}</span>
+      </div>
+     </div> 
+         
+    <div class="panel panel-default">
+     <div class="panel-heading">
             <div class="panel-body">
-                {{blogPost.body}}
+                {{blogPost.body }}
             </div>
      </div>
+     
   </div>
- 
+ </div>
 </div>
-
+</div>
 <div ng-show="currentUser.role == 'Admin' ">
-   <input type="radio" ng-model="blogPost.approved" value="true"/>Approve<br>
-   <input type="radio" ng-model="blogPost.approved" value="false"/>Reject<br>
-   <a href="" ng-click="updateApproval()" class="btn btn-default">Update</a>
-   <a href="#getallblogs" class="btn btn-default">Back</a>
+   <div class="container">
+		   <input type="radio" ng-model="blogPost.approved" value="true"/><span class="blogtext">&nbsp Approve</span><br>
+		   <input type="radio" ng-model="blogPost.approved" value="false"/><span class="blogtext">&nbsp Reject</span><br><br>
+		   <a href="" ng-click="updateApproval()" class="btn btn-lg btn-default">Update</a>
+		   <a href="#getallblogs" class="btn btn-lg btn-primary">Back</a>
+    </div>
 </div>
 
-<div class="row" ng-hide="currentUser.role == 'Admin' ">
-  <a href="" ng-click="getBlogComments(blogPost.id)">Show Comments</a>
-  <ul ng-show="showcomments">
-     <li ng-repeat="comment in blogComments | orderBy: ['date','created_at']  " style="list-style-type:none;">
-        <div>
-          {{comment.body}}
-          <span><b>commented by </b>{{comment.commentedBy.username}}</span>
-          <span><b>commented on </b>{{comment.commentedOn | date:'MM/dd/yyyy HH:mm'}}</span>
-        </div>
-     </li>
-  </ul>
+<div class="container">
+	<div class="row" ng-hide="currentUser.role == 'Admin' ">
+	  <a href="" ng-click="getBlogComments(blogPost.id)"><span class="blogtext">Show Comments</span></a>
+	  <ul ng-show="showcomments">
+	     <li ng-repeat="comment in blogComments | orderBy: ['date','created_at']  " style="list-style-type:none;">
+	        <div>
+	               <div class="container">
+			         <div class="panel panel-warning">
+			            <div class="panel-heading">
+			                  <span class="blogtext2">{{comment.body}}</span>
+			            </div>
+			            <div class="panel-body">
+                          <span class="blogtext1">commented by:</span> {{comment.commentedBy.username | uppercase}} &nbsp
+	                       <span class="blogtext1">commented on:</span> {{comment.commentedOn | date:'MM/dd/yyyy HH:mm'}}
+                       </div>
+			         </div>
+	         </div>
+	          
+	          
+	        </div>
+	     </li>
+	  </ul>
+	</div>
+	<div class="col-sm-3 col-md-3 col-lg-3" ng-hide="currentUser.role == 'Admin'">
+	 <form>
+	  <textarea  cols="50" ng-model="blogComment.body"></textarea>
+	  <button ng-click="addBlogComment()" class="btn btn-lg btn-primary"><span class="blogtext">Post Comment</span></button>
+	</form>
+	</div>
 </div>
-<div class="col-sm-3 col-md-3 col-lg-3" ng-hide="currentUser.role == 'Admin'">
- <form>
-  <textarea ng-model="blogComment.body"></textarea>
-  <button ng-click="addBlogComment()" class="btn btn-primary btn-block">Post Comment</button>
-</form>
-</div>
+</body>
+</html>

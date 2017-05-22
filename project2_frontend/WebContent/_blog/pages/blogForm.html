@@ -1,16 +1,46 @@
-<form>
-       <table>
-          <tr>
-              <td>Title of the blog post</td>
-              <td><input type="text" ng-model='blog.title'/></td>
-          </tr>
-          <tr>
-              <td>Content</td>
-              <td><textarea rows="10" cols="50" ng-model="blog.body"></textarea></td>
-          </tr>
-          <tr>
-              <td><input type="submit" value="submit" ng-click="saveBlogPost()"/></td>
-          </tr>
-       </table>
-      
-    </form>
+<html>
+<style>
+   li{
+      list-style-type:none;
+    }
+   .title,.title input[type="text"],.title textarea{
+      font-weight:bold;
+      font-size:20px;
+      text-transform:uppercase;
+   }
+ 
+    .title input[type="text"]{
+       padding:15px;
+       color:#F08080;
+       opacity:1;
+    }
+    .title textarea{
+       font-size:15px;
+    }
+    .mess{
+        font-weight:bold;
+      font-size:20px;
+      text-transform:uppercase;
+      color:#DF4C53;
+    }
+</style>
+<body>
+   <span class="mess">{{Mess}}</span>
+		<form>
+		       <ul class="blog">
+		          <li>
+		              <span class="title">Title of the blog post</span>
+		              <span class="title"><input type="text" ng-model='blog.title' required/></span>
+		          </li>
+		          <li>
+		              <span class="title">Content</span><br/>
+		              <span class="title"><textarea rows="10" cols="50" ng-model="blog.body" required></textarea></span>
+		          </li>
+		          <li>
+		              <span><input type="submit" value="SUBMIT" ng-click="saveBlogPost()" class="btn btn-lg btn-primary" /></span>
+		          </li>
+		       </ul>
+		      
+		    </form>
+</body>
+</html>

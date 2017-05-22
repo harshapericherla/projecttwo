@@ -96,8 +96,8 @@ app.run(function($rootScope,$cookieStore,userService,$location){
 	 
 	 
 	 
-	 $('li').click(function(){
-		  $('li').removeClass('active');
+	 $('a').click(function(){
+		  $('a').removeClass('active');
 		  $(this).addClass('active');
 	 });
 });

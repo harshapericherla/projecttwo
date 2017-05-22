@@ -1,35 +1,52 @@
+<html>
+<style>
+   table.job tr td{
+      font-weight:bold;
+      font-size:20px;
+      padding-right:10px;
+   }
+   table.job tr td input[type="text"]{
+   
+   }
+</style>
+<body>
+<div class="container">
 <form>
-  <table>
+  <table class="job">
      <tr>
         <td>Job Title</td>
-        <td><input type="text" ng-model="job.jobTitle"/></td>
+        <td><input type="text" ng-model="job.jobTitle" required/></td>
      </tr>
      <tr>
         <td>Job Description</td>
-        <td><input type="textarea" ng-model="job.jobDescription"/></td>
+        <td><input type="textarea" ng-model="job.jobDescription" required/></td>
      </tr>
      <tr>
         <td>Location</td>
-        <td><input type="text"  ng-model="job.location"/></td>
+        <td><input type="text"  ng-model="job.location" required/></td>
      </tr>
      <tr>
         <td>YearsOfExperience</td>
-        <td><input type="text"  ng-model="job.yrsOfExp"/></td>
+        <td><input type="text"  ng-model="job.yrsOfExp" required/></td>
      </tr>
      <tr>
         <td>Company</td>
-        <td><input type="text"  ng-model="job.company"/></td>
+        <td><input type="text"  ng-model="job.company" required/></td>
      </tr>
      <tr>
         <td>Skills</td>
-        <td><input type="text"  ng-model="job.skillsRequired"/></td>
+        <td><input type="text"  ng-model="job.skillsRequired" required/></td>
      </tr> 
      <tr>
         
-        <td><input type="submit"  ng-click="saveJob()" value="PostJob"/></td>
+        <td><input type="submit"  ng-click="saveJob()" value="PostJob" class="btn btn-lg btn-info"/></td>
      </tr> 
   </table>
 
 </form>
+
 <br/>
 {{errormessage}}
+</div>
+</body>
+</html>

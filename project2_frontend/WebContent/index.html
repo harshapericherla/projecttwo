@@ -5,7 +5,7 @@
 <title>Insert title here</title>
 
  
-  <link rel="stylesheet" href="/project2_frontend/script_files/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="icon" href="data:;base64,iVBORw0KGgo="/>
   <link rel="stylesheet" href="/project2_frontend/css/index.css">
 
@@ -14,19 +14,19 @@
    <nav class="navbar navbar-default">
   		<div class="container-fluid">
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="#">Working On</a>
+		      <a class="navbar-brand" href="#"><span class="text">SOCIO CONNECT</span></a>
 		    </div>
 		    <ul class="nav navbar-nav">
 		    
-		      <li class="active"><a href="#home">Home</a></li>
-		      <li><a href="#login" ng-hide='currentUser.username'>Login</a></li>
-		      <li><a href="#" ng-show='currentUser.username'>Welcome {{currentUser.username}}</a></li> 
+		      <li><a class="active" href="#home"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+		      <li><a href="#login" ng-hide='currentUser.username'><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+		      <li><a href="#" ng-show='currentUser.username'><span class="glyphicon  glyphicon-user"></span>Welcome {{currentUser.username}}</a></li> 
 		      <li><a href="#profilepic"  ng-show='currentUser.username'><img id='img-circle' src="http://localhost:8081/project2_backend/getimage/{{currentUser.username}}" alt="Upload Picture" height="30px" width="30px" /></a></li>
-		      <li><a href="#edituser" ng-show='currentUser.username'>Edit Profile</a></li>
-		      <li><a href="" ng-click="logout()" ng-show='currentUser.username'>Logout</a></li>
+		      <li><a href="#edituser" ng-show='currentUser.username'><span class="glyphicon glyphicon-edit"></span>Edit Profile</a></li>
+		      <li><a href="" ng-click="logout()" ng-show='currentUser.username'><span class="glyphicon glyphicon-off"></span>Logout</a></li>
 		      
 		      <li class="dropdown" ng-show="currentUser.username">
-			        <a class="dropdown-toggle" data-toggle="dropdown" >Job
+			        <a class="dropdown-toggle" data-toggle="dropdown" ><span class="glyphicon glyphicon-lock"></span>Job
 			        <span class="caret"></span></a>
 			        <ul class="dropdown-menu">
 			             <li><a href="#addjob" ng-show='currentUser.role == "Admin" '>Post New Job</a></li>
@@ -35,7 +35,7 @@
 			  </li>
 			  
 			  <li class="dropdown" ng-show="currentUser.username">
-			        <a class="dropdown-toggle" data-toggle="dropdown" >Blog
+			        <a class="dropdown-toggle" data-toggle="dropdown" ><span class="glyphicon glyphicon-gift"></span>Blog
 			        <span class="caret"></span></a>
 			        <ul class="dropdown-menu">
 			              <li><a href="#addpost" ng-show='currentUser.username'>Add Blog Post</a></li>
@@ -45,7 +45,7 @@
 			  </li>
 			  
 			   <li class="dropdown" ng-show="currentUser.username">
-			        <a class="dropdown-toggle" data-toggle="dropdown" >Friend
+			        <a class="dropdown-toggle" data-toggle="dropdown" ><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span>Friend
 			        <span class="caret"></span></a>
 			        <ul class="dropdown-menu">
 			              <li><a href="#getallusers" ng-show='currentUser.username'>Suggested Users</a></li>
@@ -53,7 +53,7 @@
 			              <li><a href="#listoffriends" ng-show='currentUser.username'>Friends List</a></li>
 			        </ul>
 			  </li>
-			  <li><a href="#chat" ng-show='currentUser.username' ng-click="condition='true'">Chat</a></li>
+			  <li><a href="#chat" ng-show='currentUser.username' ng-click="condition='true'"><span class="glyphicon glyphicon-inbox"></span>Chat</a></li>
 		   </ul>
 		</div>
 </nav>
@@ -65,9 +65,9 @@
   <script src="/project2_frontend/script_files/angular-animate.js"></script>
   <script src="/project2_frontend/script_files/angular-cookies.js"></script>
   <script src="/project2_frontend/script_files/angular-route.js"></script>
-  <script src="/project2_frontend/script_files/jquery/jquery-3.2.1.js"></script>
-  <script src="/project2_frontend/script_files/bootstrap/bootstrap.js"></script>
-  <script src="/project2_frontend/script_file s/sockjs.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="/project2_frontend/script_files/sockjs.js"></script>
   <script src="/project2_frontend/script_files/stomp.js"></script>
   <!-- Main Module -->
   

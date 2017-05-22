@@ -1,11 +1,40 @@
-<table class="table table-striped">
-    <tr ng-repeat="p in pendingLists">
-      <td>{{p.from}}</td>
-      <td>
-         <a href="" ng-click="updatePendingRequests(p.from,'A')" class="btn btn-xs btn-default">Accept</a>
-         <a href="" ng-click="updatePendingRequests(p.from,'D')" class="btn btn-xs btn-default">Deny</a>
-      </td>
-    </tr>
+<html>
+<style>
+   li{
+     list-style-type : none;
+   }
+   li.pendingul{
+      padding:10px;
+   }
+   span.pending,span.pendingtext1{
+      margin : 10px;
+      color:white;
+      background-color:#F08080 !important;
+      border-radius:5%;
+      padding:10px;
+      font-size:16px;
+   }
+   span.pendingtext1{
+     text-transform:uppercase;
+     font-size:30px;
+   }
+   span.pendingtext,span.pending,span.pendingtext1{
+      font-weight:bold;
+   }
+   span.pendingtext{
+       text-transform:uppercase;
+       opacity:0.8;
+   }
+</style>
+<body>
+    <div ng-if="pendingLists == 0"><span class="pendingtext1">No requests are available</span></div>
+    <ul  ng-repeat="p in pendingLists">
+      <li class="pendingul"><img id='img-circle' src="http://localhost:8081/project2_backend/getimage/{{p.from}}" alt="Upload Picture" height="40px" width="40px" /><span class="pending">{{p.from | uppercase}}</span></li>
+      <li class="pendingul">
+         <a href="" ng-click="updatePendingRequests(p.from,'A')" class="btn btn-md btn-default"><span class="pendingtext">Accept</span></a>
+         <a href="" ng-click="updatePendingRequests(p.from,'D')" class="btn btn-md btn-default"><span class="pendingtext">Deny</span></a>
+      </li>
+    </ul>
+ </body>
+</html>
     
-    
-</table>

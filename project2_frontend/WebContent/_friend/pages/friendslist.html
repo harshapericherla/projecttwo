@@ -1,8 +1,33 @@
-
-  <ul ng-repeat="friend in friendslist" style="list-style-type:none">
+<html>
+<style>
+   span.friend, span.pendingtext1{
+      margin : 10px;
+      color:white;
+      background-color:#F08080 !important;
+      font-weight:bold;
+      border-radius:5%;
+      padding:10px;
+      font-size:16px;
+   }
+   ul.friendul{
+     padding:10px;
+   }
+   span.pendingtext1{
+     text-transform:uppercase;
+     font-size:30px;
+   }
+  
+</style>
+<body>
+  <div ng-if="friendslist == 0">
+      <span class="pendingtext1">You have no friends, Please send requests</span>
+  </div>
+  <ul class="friendul" ng-repeat="friend in friendslist" style="list-style-type:none">
     
-     <li ng-show="!(currentUser.username == friend.from)">{{friend.from}}</li>
-     <li ng-show="!(currentUser.username == friend.to)">{{friend.to}}</li>
+     <li ng-show="!(currentUser.username == friend.from)"><img id='img-circle' src="http://localhost:8081/project2_backend/getimage/{{friend.from}}" alt="Upload Picture" height="40px" width="40px" /><span class="friend">{{friend.from | uppercase}}</span></li>
+     <li ng-show="!(currentUser.username == friend.to)"><img id='img-circle' src="http://localhost:8081/project2_backend/getimage/{{friend.to}}" alt="Upload Picture" height="40px" width="40px" /><span class="friend">{{friend.to | uppercase}}</span></li>
     
   </ul>
-</table>
+  </table>
+</body>
+</html>

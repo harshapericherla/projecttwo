@@ -1,19 +1,48 @@
-<table class="table table-stripped">
-  <tr>
-   <th>Lastname</th>
-   <th>Firstname</th>
-   <th>email</th>
-   <th>online</th>
-   <th>Action</th>
-  </tr>
-  <tr ng-repeat="users in usersList" >
-    
-     <td>{{users.firstname}}</td>
-     <td>{{users.lastname}}</td>
-     <td>{{users.email}}</td>
-     <td ng-if="users.online">YES</td>
-     <td ng-if="!users.online">NO</td>
-     <td><a href="" ng-click="friendRequest(users.username)" class="btn btn-xs btn-default">Send FriendRequest</a></td>
-    
-  </tr>
-</table>
+<html>
+<style>
+  .suggested tr th{
+     text-transform:uppercase;
+     font-weight:bold;
+     opacity:0.8;
+     font-size:18px;
+  }
+  span.suggestedtext, span.pendingtext1{
+      text-transform:uppercase;
+  }
+  span.pendingtext1{
+      margin : 10px;
+      color:white;
+      background-color:#F08080 !important;
+      border-radius:5%;
+      padding:10px;
+      font-size:30px;
+   }
+  
+</style>
+<body>
+   <div ng-if="usersList == 0">
+        <span class="pendingtext1">No suggested users are available</span>
+   </div>
+  <div ng-if="usersList != 0">
+	<table class="table table-stripped suggested">
+	  <tr>
+	   <th>Lastname</th>
+	   <th>Firstname</th>
+	   <th>email</th>
+	   <th>online</th>
+	   <th>Action</th>
+	  </tr>
+	  <tr ng-repeat="users in usersList" >
+	    
+	     <td>{{users.firstname | uppercase}}</td>
+	     <td>{{users.lastname | uppercase}}</td>
+	     <td>{{users.email | uppercase}}</td>
+	     <td ng-if="users.online">YES</td>
+	     <td ng-if="!users.online">NO</td>
+	     <td><a href="" ng-click="friendRequest(users.username)" class="btn btn-md btn-default"><span class="suggestedtext">Send FriendRequest</span></a></td>
+	    
+	  </tr>
+	</table>
+	</div>
+</body>
+</html>

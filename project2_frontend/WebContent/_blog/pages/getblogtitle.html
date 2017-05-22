@@ -1,13 +1,37 @@
+<html>
+<style>
+  table.blog tr th,table.blog tr td{
+     text-transform:uppercase;
+     font-weight:bold;
+     opacity:0.8;
+     font-size:18px;
+  }
+  table.blog tr *{
+    padding:10px;
+  }
+  table.blog tr td{
+    font-size:14px;
+  }
+  span.blogtext{
+    color:black;
+  }
+   span.blogtext1{
+   color:#DF4C53 !important;
+   }
+  table.blog tr:hover {background-color: #f5f5f5}
+</style>
+<body>
 <div class="table-responsive">
- <table class="table">
+ <table class="blog">
  <tr><th>Recent Posts</th></tr>
     <tr ng-repeat="blogPost in blogPosts | orderBy:'time':true">
-       <td><a href="#getblogdetail/{{blogPost.id}}">{{blogPost.title}}</a></td>
-       <td>CreatedBy: {{blogPost.createdBy.username}}</td>
-       <td>CreatedOn: {{blogPost.createdOn | date:'MM/dd/yyyy HH:mm'}}</td>
+       <td><a href="#getblogdetail/{{blogPost.id}}"><span class="blogtext">{{blogPost.title | uppercase}}</span></a></td>
+       <td><span class="blogtext1">CreatedBy:</span> {{blogPost.createdBy.username | uppercase}}</td>
+       <td><span class="blogtext1">CreatedOn:</span> {{blogPost.createdOn | date:'MM/dd/yyyy HH:mm'}}</td>
        <td></td>
     </tr>
  </table>
 </div>
-
+</body>
+</html>
 

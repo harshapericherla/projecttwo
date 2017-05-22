@@ -22,15 +22,31 @@ main.ng-enter.ng-enter-active {
 .navbar.navbar-default{
 	padding: 1% 0 0 0 !important;
 }
+
 li{
 	cursor:pointer !important;
 }
 a{
 	text-decoration: none !important;
 }
+.active,.text,.sm{
+	font-weight:bold !important;
+}
 .active{
 	padding : 10px !important;
-	color: black !important;
-	font-weight : bold !important;
-	font-size:15px;
+	color: #DF4C53 !important;
+	font-size:18px;
+}
+.text{
+	text-tranform:uppercase !important;
+	color:white;
+	background-color:black;
+	padding:10px 10px 10px 15px;
+	border-radius:5%;
+	opacity:0.8;
+}
+.glyphicon{
+	color:	#F08080 !important;
+	padding-right : 3px;
+	font-size:20px;
 }

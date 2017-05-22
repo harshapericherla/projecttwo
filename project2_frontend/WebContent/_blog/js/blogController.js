@@ -8,7 +8,8 @@ app.controller('blogController',function($scope,$location,blogService){
 		           },function(resp){
 		        	   
 		        	   console.log(resp.status);
-		        	   $location.path('/login');
+		        	   $scope.Mess = "Please fill out the below fields completely"
+		        	   $location.path('/addpost');
 		           });
 	}
 	

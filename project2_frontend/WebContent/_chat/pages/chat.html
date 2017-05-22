@@ -4,6 +4,11 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
+<style>
+    .message1{
+       background-color:blue;
+    }
+</style>
 <body>
    <header class="container">
       <div id="heading" class="masthead">
@@ -41,7 +46,7 @@
                    placeholder="Message....." rows="3" ng-model="chat.message" >
                    </textarea>
                 </div>
-                <input type="submit" ng-focus="focus-on-click" name="send" class="btn btn-primary" value="Send..."/>
+                <input type="submit" ng-focus="focus-on-click" name="send" class="btn btn-primary" value="SEND"/>
             </form>
          </div>
       </div>
@@ -49,11 +54,30 @@
       <div class="row">
         <div class="col-md-12" id="chats">
            <div ng-repeat="chat in chats | reverse" class="chat {{chat.direction}}" ng-class="{'broadcast':chat.broadcast}">
-              <span class="from">
-                  {{chat.from}} :
-                  <small ng-if="chat.broadcast">BROADCAST</small>
-              </span>
-              <span class="message">{{ chat.message}}</span>
+              
+              
+             <div class="panel panel-info" ng-if ='chat.from == "Me" '>
+         
+               <div class="panel-heading">
+		              <span class="from">
+		                  {{chat.from}} :
+		                  <small ng-if="chat.broadcast">BROADCAST</small>
+		              </span>
+		            
+		                       <span class="message">{{ chat.message}}</span>
+                 </div>
+                </div>
+                <div class="panel panel-default" ng-if ='chat.from != "Me" '>
+         
+               <div class="panel-heading">
+		              <span class="from">
+		                  {{chat.from}} :
+		                  <small ng-if="chat.broadcast">BROADCAST</small>
+		              </span>
+		            
+		                       <span class="message">{{ chat.message}}</span>
+                 </div>
+                </div>
            </div>
         </div>
       </div>

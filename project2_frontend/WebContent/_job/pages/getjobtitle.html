@@ -1,22 +1,39 @@
-
+<html>
+ <style>
+   span.title{
+      font-weight:bold;
+      font-size:20px;
+      color:#DF4C53;
+      opacity:0.8;
+   }
+   span.job{
+     text-transform : uppercase;
+     font-weight:bold;
+     opacity:0.8;
+     font-size:17px;
+   }
+ </style>
+ <body>
   <ul ng-repeat = "job in jobs" style="list-style-type:none" >
      <li ng-if="currentUser.role != 'Admin' "
-     ng-show="job.active"><a href="" ng-click='jobDetail(job.id)'>{{job.jobTitle}}</a></li>
-     <li ng-if="currentUser.role == 'Admin'" ><a href="" ng-click='jobDetail(job.id)'>{{job.jobTitle}}</a></li>
+     ng-show="job.active"><a href="" ng-click='jobDetail(job.id)'><span class="title">{{job.jobTitle}}</span></a></li>
+     <li ng-if="currentUser.role == 'Admin'" ><a href="" ng-click='jobDetail(job.id)'><span class="title">{{job.jobTitle}}</span></a></li>
       
      <div class="list" ng-show="showJobDetails" ng-if = 'job.id == currentId'>
-          <b>Description</b> : {{job.jobDescription}}<br/>
-          <b>Location</b> : {{job.location}}<br>
-          <b>Years of Experience</b> : {{job.yrsOfExp}}<br>
-		  <b>company</b> : {{job.company}}<br>
-		  <b>Posted On</b>: {{job.postedon | date:'yyyy/MM/dd'}}<br>
-		  <b>Skills Required</b> : {{job.skillsRequired}}<br>
-		  <b ng-show="currentUser.role == 'Admin' ">Active:<b ng-if ='job.active'>Yes</b>
-		  <b ng-if ='!job.active'>No</b> </b>
+          <span class="job ">Description</span> : {{job.jobDescription | uppercase}}<br/>
+          <span class="job ">Location</span> : {{job.location | uppercase}}<br>
+          <span class="job ">Years of Experience</span> : {{job.yrsOfExp | uppercase}}<br>
+		  <span class="job ">company</span> : {{job.company | uppercase}}<br>
+		  <span class="job ">Posted On</span>: {{job.postedon | date:'yyyy/MM/dd'}}<br>
+		  <span class="job ">Skills Required</span> : {{job.skillsRequired | uppercase}}<br>
+		  <span class="job " ng-show="currentUser.role == 'Admin' ">Active:<b ng-if ='job.active'>Yes</b>
+		  <span class="job " ng-if ='!job.active'>No</span> </span>
 		  
      </div>
         
   </ul>
+  </body>
+</html>
 
   
   
